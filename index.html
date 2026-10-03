@@ -1,0 +1,1022 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sreelekshmi &amp; Pranav · 17 December 2026</title>
+    <meta
+      name="description"
+      content="The wedding of Sreelekshmi & Pranav · Thursday, 17 December 2026 · St. George College Auditorium, Aruvithura"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ivory: #f6f1e7;
+        --ivory-deep: #ece4d4;
+        --night: #1c1510;
+        --brass: #b8893b;
+        --brass-soft: #e2c48c;
+        --leaf: #4c5a37;
+        --ink: #2a211a;
+        --ink-soft: #6b5d4f;
+        --line: rgba(42, 33, 26, 0.16);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--ivory);
+        color: var(--ink);
+        font-family: "Jost", sans-serif;
+        font-weight: 300;
+        font-size: 17px;
+        line-height: 1.8;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+      }
+      a {
+        color: inherit;
+      }
+      .serif {
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 500;
+      }
+      .label {
+        font-family: "Jost", sans-serif;
+        font-weight: 400;
+        font-size: 0.7rem;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: var(--brass);
+      }
+      .btn {
+        display: inline-block;
+        font-family: "Jost", sans-serif;
+        font-weight: 400;
+        font-size: 0.72rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        border: 1px solid currentColor;
+        transition:
+          background 0.3s,
+          color 0.3s;
+      }
+      .btn:hover {
+        background: var(--ink);
+        color: var(--ivory);
+        border-color: var(--ink);
+      }
+      /* photo with a dark scrim for text on top */
+      .shot {
+        position: relative;
+        overflow: hidden;
+        background: var(--night);
+      }
+      .shot > img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .shot::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(20, 14, 9, 0.55);
+      }
+      .band.shot::after {
+        background: rgba(20, 12, 8, 0.5);
+      }
+      .shot > .over {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* ganapati logo (gold line art, transparent png) */
+      .ganapati {
+        display: block;
+        width: 104px;
+        height: auto;
+        margin: 0 auto;
+      }
+
+      /* ============ OPENING ============ */
+      body:not(.opened) {
+        overflow: hidden;
+        height: 100vh;
+      }
+      #intro {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        color: var(--ivory);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        cursor: pointer;
+        transition:
+          opacity 1s ease,
+          visibility 0s 1s;
+      }
+      #intro::after {
+        background: linear-gradient(
+          rgba(20, 14, 9, 0.55),
+          rgba(20, 14, 9, 0.78)
+        );
+      }
+      #intro.gone {
+        opacity: 0;
+        visibility: hidden;
+      }
+      #intro .over {
+        padding: 2rem;
+      }
+      #intro .over > * {
+        opacity: 0;
+        animation: rise 1.3s ease forwards;
+      }
+      #intro .ganapati {
+        width: clamp(96px, 22vw, 130px);
+        filter: drop-shadow(0 0 14px rgba(226, 196, 140, 0.35));
+      }
+      #intro .label {
+        color: var(--brass-soft);
+        margin-top: 1.8rem;
+        animation-delay: 0.4s;
+      }
+      #intro h1 {
+        font-size: clamp(2.8rem, 9vw, 5rem);
+        font-weight: 400;
+        line-height: 1.05;
+        margin-top: 0.8rem;
+        animation-delay: 0.7s;
+      }
+      #intro h1 em {
+        color: var(--brass-soft);
+        padding: 0 0.12em;
+      }
+      #intro .date {
+        font-family: "Cormorant Garamond", serif;
+        font-style: italic;
+        font-size: 1.35rem;
+        margin-top: 0.6rem;
+        animation-delay: 1s;
+      }
+      #intro .tap {
+        margin-top: 3rem;
+        color: var(--ivory);
+        animation:
+          rise 1.3s ease 1.5s forwards,
+          blink 2.6s ease-in-out 2.8s infinite;
+      }
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(14px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      @keyframes blink {
+        50% {
+          opacity: 0.4;
+        }
+      }
+
+      /* ============ HEADER ============ */
+      header.bar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.2rem clamp(1.5rem, 5vw, 4rem);
+        background: rgba(246, 241, 231, 0.94);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--line);
+      }
+      .bar .logo {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.5rem;
+        font-weight: 500;
+        text-decoration: none;
+        letter-spacing: 0.04em;
+      }
+      .bar .logo em {
+        color: var(--brass);
+      }
+      .bar nav {
+        display: flex;
+        gap: 2rem;
+      }
+      .bar nav a {
+        font-size: 0.7rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        text-decoration: none;
+      }
+      .bar nav a:hover {
+        color: var(--brass);
+      }
+
+      /* ============ HERO ============ */
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: calc(100vh - 70px);
+      }
+      /* photo: smaller, in an arched double-gold frame with a lotus medallion,
+         gold corner flourishes and a soft blush wash behind, echoing the painting */
+      .hero .photo {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: clamp(2.5rem, 6vw, 4rem) clamp(1.5rem, 4vw, 3rem);
+      }
+      .hero .photo::before {
+        content: "";
+        position: absolute;
+        width: 70%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(233, 195, 198, 0.55),
+          rgba(169, 183, 154, 0.25) 55%,
+          transparent 72%
+        );
+        filter: blur(30px);
+        pointer-events: none;
+      }
+      .hero .photo .frame {
+        position: relative;
+        width: min(100%, 360px);
+        padding: 12px;
+        border: 1px solid var(--brass);
+        border-radius: 999px 999px 10px 10px;
+        background: var(--ivory);
+        box-shadow: 0 40px 60px -40px rgba(42, 33, 26, 0.55);
+      }
+      .hero .photo .frame::before {
+        content: "";
+        position: absolute;
+        inset: 5px;
+        border: 1px solid var(--brass);
+        border-radius: 999px 999px 6px 6px;
+        opacity: 0.5;
+        pointer-events: none;
+      }
+      .hero .photo img {
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        object-position: center 22%;
+        border-radius: 999px 999px 4px 4px;
+      }
+      /* lotus medallion breaking the top of the arch */
+      .hero .photo .medal {
+        position: absolute;
+        top: -22px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--ivory);
+        border: 1px solid var(--brass);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--brass);
+      }
+      .hero .photo .medal svg {
+        width: 24px;
+        height: 16px;
+        fill: currentColor;
+      }
+      /* gold flourishes on the two bottom corners */
+      .hero .photo .corner {
+        position: absolute;
+        bottom: -10px;
+        width: 42px;
+        height: 42px;
+        color: var(--brass);
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.2;
+        stroke-linecap: round;
+      }
+      .hero .photo .corner.l {
+        left: -12px;
+      }
+      .hero .photo .corner.r {
+        right: -12px;
+        transform: scaleX(-1);
+      }
+      .hero .text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 4rem clamp(1.5rem, 6vw, 6rem);
+      }
+      .hero h2 {
+        font-size: clamp(3rem, 6.5vw, 5.6rem);
+        font-weight: 400;
+        line-height: 1;
+        margin-top: 1rem;
+      }
+      .hero h2 em {
+        display: block;
+        color: var(--brass);
+        font-size: 0.6em;
+        line-height: 1.3;
+      }
+      .hero .date {
+        font-family: "Cormorant Garamond", serif;
+        font-style: italic;
+        font-size: 1.45rem;
+        color: var(--ink-soft);
+        margin-top: 1.6rem;
+      }
+      .hero .where {
+        margin-top: 0.4rem;
+        color: var(--ink-soft);
+      }
+      .hero .links {
+        margin-top: 2.4rem;
+      }
+
+      /* ============ SECTIONS ============ */
+      .wrap {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+      }
+      h3.serif {
+        font-size: clamp(2.2rem, 4.6vw, 3.4rem);
+        font-weight: 400;
+        line-height: 1.12;
+        margin-top: 0.8rem;
+      }
+
+      /* invitation: tall jasmine photo + text */
+      .invite {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: clamp(2.5rem, 6vw, 6rem);
+        align-items: center;
+      }
+      .invite .pic {
+        aspect-ratio: 3 / 4;
+        overflow: hidden;
+      }
+      .invite .pic img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .invite .parents {
+        font-size: 1.5rem;
+        line-height: 1.35;
+        margin-top: 1.8rem;
+      }
+      .invite p.body {
+        color: var(--ink-soft);
+        margin-top: 1.2rem;
+        max-width: 470px;
+      }
+      .invite .couple {
+        font-size: clamp(2rem, 4vw, 2.6rem);
+        margin-top: 1.4rem;
+        line-height: 1.2;
+      }
+      .invite .couple em {
+        color: var(--brass);
+        font-weight: 400;
+      }
+
+      /* full-bleed photo band */
+      .band {
+        min-height: 46vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: var(--ivory);
+        padding: 4rem 1.5rem;
+      }
+      .band .serif {
+        font-size: clamp(2.2rem, 5.5vw, 4.2rem);
+        font-weight: 400;
+        line-height: 1.05;
+      }
+      .band .serif em {
+        color: var(--brass-soft);
+      }
+      .band .label {
+        color: var(--brass-soft);
+        margin-top: 1.6rem;
+      }
+
+      /* details: three photo cards */
+      .details {
+        text-align: center;
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.6rem;
+        margin-top: 3.4rem;
+        text-align: left;
+      }
+      .card .pic {
+        aspect-ratio: 4 / 5;
+        overflow: hidden;
+      }
+      .card .pic img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 1.2s ease;
+      }
+      .card:hover .pic img {
+        transform: scale(1.04);
+      }
+      .card .label {
+        margin-top: 1.4rem;
+      }
+      .card .serif {
+        font-size: 1.85rem;
+        line-height: 1.2;
+        margin-top: 0.3rem;
+      }
+      .card .sub {
+        color: var(--ink-soft);
+      }
+      .details .links {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-top: 3.4rem;
+      }
+
+      /* countdown over the urli photo */
+      .count {
+        text-align: center;
+        color: var(--ivory);
+        padding: clamp(5rem, 10vw, 7rem) 1.5rem;
+      }
+      .count .label {
+        color: var(--brass-soft);
+      }
+      .count-row {
+        display: flex;
+        justify-content: center;
+        gap: clamp(1.8rem, 7vw, 5rem);
+        margin-top: 1.8rem;
+      }
+      .count-row b {
+        display: block;
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 500;
+        font-size: clamp(2.8rem, 8vw, 4.6rem);
+        line-height: 1;
+        font-variant-numeric: tabular-nums;
+      }
+      .count-row small {
+        display: block;
+        margin-top: 0.6rem;
+        color: var(--ivory);
+        opacity: 0.8;
+      }
+
+      /* family */
+      .family {
+        text-align: center;
+      }
+      .family .names {
+        font-size: clamp(1.8rem, 4vw, 2.4rem);
+        line-height: 1.5;
+        margin-top: 1.2rem;
+      }
+      .family .names em {
+        color: var(--brass);
+        font-weight: 400;
+      }
+
+      footer {
+        background: var(--night);
+        color: var(--ivory);
+        text-align: center;
+        padding: 4.5rem 1.5rem 3rem;
+      }
+      footer .ganapati {
+        width: 64px;
+      }
+      footer .serif {
+        font-size: 1.8rem;
+        margin-top: 1.4rem;
+      }
+      footer .label {
+        color: var(--brass-soft);
+        margin-top: 0.4rem;
+      }
+      footer .credit {
+        margin-top: 2.6rem;
+        font-size: 0.72rem;
+        opacity: 0.5;
+      }
+
+      /* music toggle */
+      .music-btn {
+        position: fixed;
+        right: 1.2rem;
+        bottom: 1.2rem;
+        z-index: 40;
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        border: 1px solid var(--brass);
+        background: var(--night);
+        color: var(--brass-soft);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .music-btn[hidden] {
+        display: none;
+      }
+      .music-btn svg {
+        width: 18px;
+        height: 18px;
+        fill: currentColor;
+      }
+
+      /* reveal */
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 1s ease,
+          transform 1s ease;
+      }
+      .reveal.in {
+        opacity: 1;
+        transform: none;
+      }
+
+      @media (max-width: 860px) {
+        .bar nav {
+          display: none;
+        }
+        .bar {
+          justify-content: center;
+          padding: 1rem 1.5rem;
+        }
+        /* opening: stack the names so nothing clips */
+        #intro .over {
+          padding: 1.5rem;
+        }
+        #intro h1 {
+          font-size: clamp(2.4rem, 11vw, 4rem);
+        }
+        #intro h1 em {
+          display: block;
+          font-size: 0.6em;
+          line-height: 1.2;
+        }
+        #intro .badge {
+          width: 104px;
+          height: 104px;
+        }
+        /* hero: no forced full-screen height, tighter stack */
+        .hero,
+        .invite {
+          grid-template-columns: 1fr;
+        }
+        .hero {
+          min-height: 0;
+        }
+        .hero .photo {
+          padding: 2.4rem 1.5rem 0.5rem;
+        }
+        .hero .photo .frame {
+          width: min(72vw, 300px);
+        }
+        .hero .text {
+          text-align: center;
+          padding: 1.6rem 1.5rem 3.2rem;
+        }
+        .hero h2 {
+          font-size: clamp(2.6rem, 11vw, 4rem);
+        }
+        .hero h2 em {
+          font-size: 0.55em;
+        }
+        .hero .links .btn {
+          display: block;
+          text-align: center;
+        }
+        /* invitation: portrait picture, keeps the statue whole */
+        .invite {
+          gap: 2rem;
+        }
+        .invite .pic {
+          aspect-ratio: 4 / 5;
+          max-width: 300px;
+          margin: 0 auto;
+        }
+        .invite .reveal:last-child {
+          text-align: center;
+        }
+        .invite p.body {
+          margin-left: auto;
+          margin-right: auto;
+        }
+        /* band */
+        .band {
+          min-height: 0;
+          padding: 3.4rem 1.5rem;
+        }
+        .band .serif {
+          font-size: clamp(2rem, 9vw, 2.8rem);
+        }
+        /* details: one card per row, faces kept in frame */
+        .cards {
+          grid-template-columns: 1fr;
+          gap: 2.4rem;
+          text-align: center;
+        }
+        .card .pic {
+          aspect-ratio: 4 / 3;
+        }
+        .card .pic img {
+          object-position: center 22%;
+        }
+        .details .links .btn {
+          flex: 1 1 100%;
+          text-align: center;
+        }
+        /* countdown: four numbers must fit 320px */
+        .count-row {
+          gap: 1.1rem;
+        }
+        .count-row b {
+          font-size: clamp(2rem, 9vw, 2.8rem);
+        }
+        .count-row small {
+          font-size: 0.6rem;
+          letter-spacing: 0.18em;
+        }
+        /* smaller floating music button, out of the text's way */
+        .music-btn {
+          width: 40px;
+          height: 40px;
+          right: 0.9rem;
+          bottom: 0.9rem;
+        }
+        .wrap {
+          padding-top: 4rem;
+          padding-bottom: 4rem;
+        }
+      }
+      /* tiny phones */
+      @media (max-width: 380px) {
+        body {
+          font-size: 16px;
+        }
+        .hero h2 {
+          font-size: 2.4rem;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #intro {
+          display: none;
+        }
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- OPENING: brass lamps photo behind -->
+    <div
+      id="intro"
+      class="shot"
+      role="button"
+      tabindex="0"
+      aria-label="Open invitation"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1760835249761-dc1ad2d7d759?w=1800&q=75&auto=format&fit=crop"
+        alt=""
+      />
+      <div class="over">
+        <img class="ganapati" src="ganapati.png" alt="Lord Ganapati" />
+        <p class="label">Shree Ganeshaya Namah</p>
+        <h1 class="serif">Sreelekshmi<em>&amp;</em>Pranav</h1>
+        <p class="date">Thursday, 17 December 2026</p>
+        <p class="label tap">Tap to open</p>
+      </div>
+    </div>
+
+    <header class="bar">
+      <a class="logo" href="#top">S <em>&amp;</em> P</a>
+      <nav>
+        <a href="#invite">Invitation</a>
+        <a href="#details">Muhurtham</a>
+        <a href="#family">Family</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <div class="hero" id="top">
+      <div class="photo">
+        <div class="frame">
+          <span class="medal" aria-hidden="true">
+            <svg viewBox="0 0 34 22">
+              <path d="M17 1c4 4 5 9 0 17c-5-8-4-13 0-17z" />
+              <path d="M5 6c5 1 9 5 11 12C9 17 5 12 5 6z" opacity=".85" />
+              <path d="M29 6c-5 1-9 5-11 12c7-1 11-6 11-12z" opacity=".85" />
+              <path d="M1 13c5-1 10 2 14 6C8 21 3 18 1 13z" opacity=".6" />
+              <path d="M33 13c-5-1-10 2-14 6c7 2 12-1 14-6z" opacity=".6" />
+            </svg>
+          </span>
+          <img src="WEDDING%20PIC.jpeg" alt="Sreelekshmi and Pranav" />
+          <svg class="corner l" viewBox="0 0 42 42" aria-hidden="true">
+            <path d="M2 40V16c0-6 4-10 10-10h8" />
+            <path d="M8 40V22c0-4 2-6 6-6h6" opacity=".6" />
+            <circle cx="24" cy="6" r="1.6" fill="currentColor" stroke="none" />
+            <circle cx="2" cy="40" r="1.6" fill="currentColor" stroke="none" />
+          </svg>
+          <svg class="corner r" viewBox="0 0 42 42" aria-hidden="true">
+            <path d="M2 40V16c0-6 4-10 10-10h8" />
+            <path d="M8 40V22c0-4 2-6 6-6h6" opacity=".6" />
+            <circle cx="24" cy="6" r="1.6" fill="currentColor" stroke="none" />
+            <circle cx="2" cy="40" r="1.6" fill="currentColor" stroke="none" />
+          </svg>
+        </div>
+      </div>
+      <div class="text">
+        <p class="label">The wedding of</p>
+        <h2 class="serif">Sreelekshmi <em>&amp;</em> Pranav</h2>
+        <p class="date">Thursday, 17 December 2026</p>
+        <p class="where">St. George College Auditorium, Aruvithura</p>
+        <div class="links">
+          <a class="btn" href="#details">View details</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- INVITATION -->
+    <div class="wrap invite" id="invite">
+      <div class="pic reveal">
+        <img
+          src="https://images.unsplash.com/photo-1641730259879-ad98e7db7bcb?w=1000&q=75&auto=format&fit=crop"
+          alt="Brass statue of Lord Krishna playing the flute"
+          loading="lazy"
+        />
+      </div>
+      <div class="reveal">
+        <p class="label">With the blessings of the Almighty</p>
+        <h3 class="serif">You are warmly invited</h3>
+        <p class="parents serif">K. R. Vidyadharan Nair &amp; Anithakumari</p>
+        <p class="body">
+          With joyful hearts, we invite you and your family to the wedding of
+          our beloved daughter
+        </p>
+        <p class="couple serif">Sreelekshmi <em>with</em> Pranav</p>
+        <p class="body">
+          and request the pleasure of your company as they exchange their
+          wedding vows.
+        </p>
+      </div>
+    </div>
+
+    <!-- STATEMENT BAND: lit nilavilakku -->
+    <div class="band shot">
+      <img
+        src="https://cdn.pixabay.com/photo/2021/08/24/11/32/couple-6570391_1280.jpg"
+        alt=""
+        loading="lazy"
+        style="object-position: center 40%"
+      />
+      <div class="over reveal">
+        <p class="serif">Two families,<br /><em>one celebration</em></p>
+        <p class="label">Seventeenth of December · Aruvithura</p>
+      </div>
+    </div>
+
+    <!-- DETAILS -->
+    <div class="wrap details" id="details">
+      <p class="label">The muhurtham</p>
+      <h3 class="serif">When &amp; where</h3>
+      <div class="cards">
+        <div class="card reveal">
+          <div class="pic">
+            <img src="IMG2.jpeg" alt="Blush roses" loading="lazy" />
+          </div>
+          <p class="label">Date</p>
+          <p class="serif">Thursday, 17 December 2026</p>
+        </div>
+        <div class="card reveal">
+          <div class="pic">
+            <img
+              src="https://images.unsplash.com/photo-1641296834249-92df2652c237?w=900&q=75&auto=format&fit=crop"
+              alt="Lit diya"
+              loading="lazy"
+            />
+          </div>
+          <p class="label">Muhurtham</p>
+          <p class="serif">12:25 – 12:50 PM</p>
+          <p class="sub">The auspicious hour</p>
+        </div>
+        <div class="card reveal">
+          <div class="pic">
+            <img src="srelekimg.jpeg" alt="Floral arch" loading="lazy" />
+          </div>
+          <p class="label">Venue</p>
+          <p class="serif">St. George College Auditorium</p>
+          <p class="sub">Aruvithura, Kottayam</p>
+        </div>
+      </div>
+      <div class="links">
+        <a
+          class="btn"
+          href="https://www.google.com/maps/search/?api=1&query=St.+George+College+Auditorium+Aruvithura"
+          target="_blank"
+          rel="noopener"
+          >Directions</a
+        >
+        <a class="btn" id="calLink" href="#" target="_blank" rel="noopener"
+          >Add to calendar</a
+        >
+      </div>
+    </div>
+
+    <!-- COUNTDOWN: flowers in a brass urli -->
+    <div class="count shot">
+      <img
+        src="https://images.unsplash.com/photo-1641296834354-a0deed5244fc?w=1800&q=75&auto=format&fit=crop"
+        alt=""
+        loading="lazy"
+      />
+      <div class="over">
+        <p class="label">Counting down</p>
+        <div class="count-row">
+          <div><b id="d">00</b><small class="label">Days</small></div>
+          <div><b id="h">00</b><small class="label">Hours</small></div>
+          <div><b id="m">00</b><small class="label">Minutes</small></div>
+          <div><b id="s">00</b><small class="label">Seconds</small></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAMILY -->
+    <div class="wrap family" id="family">
+      <p class="label">Sharing happiness</p>
+      <p class="names serif reveal">
+        Gouri <em>&amp;</em> Gourav<br />Sreevidya <em>&amp;</em> Mahesh
+      </p>
+    </div>
+
+    <footer>
+      <img class="ganapati" src="ganapati.png" alt="" />
+      <p class="serif">Sreelekshmi &amp; Pranav</p>
+      <p class="label">17 · 12 · 2026</p>
+      <p class="credit">..</p>
+    </footer>
+
+    <!-- MUSIC (drop a music.mp3 next to this file; button hides itself if missing) -->
+    <audio id="bgm" loop preload="auto">
+      <source src="pesamale.mpeg" type="audio/mpeg" />
+    </audio>
+    <button
+      class="music-btn"
+      id="musicBtn"
+      aria-label="Play music"
+      title="Play music"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path id="musicPath" d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z" />
+      </svg>
+    </button>
+
+    <script>
+      /* background music */
+      const bgm = document.getElementById("bgm")
+      const musicBtn = document.getElementById("musicBtn")
+      const musicPath = document.getElementById("musicPath")
+      const NOTE = "M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"
+      const PAUSE = "M7 5h3v14H7zM14 5h3v14h-3z"
+      bgm.volume = 0.5
+      // no music file present: hide the toggle instead of showing a dead button
+      bgm.querySelector("source").addEventListener("error", () => {
+        musicBtn.hidden = true
+      })
+      function setMusicUI(playing) {
+        musicPath.setAttribute("d", playing ? PAUSE : NOTE)
+        musicBtn.setAttribute(
+          "aria-label",
+          playing ? "Pause music" : "Play music",
+        )
+      }
+      musicBtn.addEventListener("click", () => {
+        if (bgm.paused)
+          bgm
+            .play()
+            .then(() => setMusicUI(true))
+            .catch(() => {})
+        else {
+          bgm.pause()
+          setMusicUI(false)
+        }
+      })
+
+      /* opening: the tap is the user gesture browsers need before audio may play */
+      const intro = document.getElementById("intro")
+      function openSite() {
+        if (document.body.classList.contains("opened")) return
+        document.body.classList.add("opened")
+        bgm
+          .play()
+          .then(() => setMusicUI(true))
+          .catch(() => {})
+        intro.classList.add("gone")
+        setTimeout(() => (intro.style.display = "none"), 1100)
+      }
+      intro.addEventListener("click", openSite)
+      intro.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") openSite()
+      })
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.body.classList.add("opened")
+      }
+
+      /* reveal on scroll */
+      const io = new IntersectionObserver(
+        (es) =>
+          es.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("in")
+              io.unobserve(e.target)
+            }
+          }),
+        { threshold: 0.15 },
+      )
+      document.querySelectorAll(".reveal").forEach((el) => io.observe(el))
+
+      /* countdown — muhurtham in IST (UTC+5:30), fixed regardless of viewer timezone */
+      const target = new Date("2026-12-17T12:25:00+05:30").getTime()
+      const el = (id) => document.getElementById(id)
+      const pad = (n) => String(n).padStart(2, "0")
+      function tick() {
+        const diff = Math.max(0, target - Date.now())
+        el("d").textContent = pad(Math.floor(diff / 864e5))
+        el("h").textContent = pad(Math.floor((diff % 864e5) / 36e5))
+        el("m").textContent = pad(Math.floor((diff % 36e5) / 6e4))
+        el("s").textContent = pad(Math.floor((diff % 6e4) / 1e3))
+      }
+      tick()
+      setInterval(tick, 1000)
+
+      /* add to Google Calendar (12:25–12:50 IST = 06:55–07:20 UTC) */
+      el("calLink").href =
+        "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+        "&text=" +
+        encodeURIComponent("Wedding of Sreelekshmi & Pranav") +
+        "&dates=20261217T065500Z/20261217T072000Z" +
+        "&location=" +
+        encodeURIComponent("St. George College Auditorium, Aruvithura") +
+        "&details=" +
+        encodeURIComponent("Muhurtham 12:25 PM – 12:50 PM")
+    </script>
+  </body>
+</html>
