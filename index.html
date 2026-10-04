@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://images.unsplash.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&family=Noto+Serif+Malayalam:wght@400&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -205,26 +205,50 @@
       }
 
       /* ============ HEADER ============ */
+      /* sits over the first-page photo in ivory; turns into a solid ivory bar once you scroll */
       header.bar {
-        position: sticky;
+        position: fixed;
         top: 0;
+        left: 0;
+        right: 0;
         z-index: 20;
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding: 1.2rem clamp(1.5rem, 5vw, 4rem);
+        color: #f3ead9;
+        transition:
+          background 0.5s,
+          color 0.5s,
+          box-shadow 0.5s;
+      }
+      header.bar.scrolled {
         background: rgba(246, 241, 231, 0.94);
         backdrop-filter: blur(8px);
         border-bottom: 1px solid var(--line);
+        color: var(--ink);
       }
       .bar .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
         font-family: "Cormorant Garamond", serif;
         font-size: 1.5rem;
         font-weight: 500;
         text-decoration: none;
         letter-spacing: 0.04em;
       }
+      .bar .logo img {
+        width: 28px;
+        transition: filter 0.5s;
+      }
+      .bar.scrolled .logo img {
+        filter: brightness(0.75) sepia(0.5);
+      }
       .bar .logo em {
+        color: var(--brass-soft);
+      }
+      .bar.scrolled .logo em {
         color: var(--brass);
       }
       .bar nav {
@@ -238,135 +262,100 @@
         text-decoration: none;
       }
       .bar nav a:hover {
+        color: var(--brass-soft);
+      }
+      .bar.scrolled nav a:hover {
         color: var(--brass);
       }
 
-      /* ============ HERO ============ */
+      /* ============ HERO (full-bleed photo, names in gold) ============ */
       .hero {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        min-height: calc(100vh - 70px);
-      }
-      /* photo: smaller, in an arched double-gold frame with a lotus medallion,
-         gold corner flourishes and a soft blush wash behind, echoing the painting */
-      .hero .photo {
         position: relative;
+        min-height: 100vh;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: clamp(2.5rem, 6vw, 4rem) clamp(1.5rem, 4vw, 3rem);
+        align-items: flex-end;
+        overflow: hidden;
+        background: #1c1510;
+        color: #f3ead9;
       }
-      .hero .photo::before {
-        content: "";
+      .hero .bg {
         position: absolute;
-        width: 70%;
-        aspect-ratio: 1;
-        border-radius: 50%;
-        background: radial-gradient(
-          circle,
-          rgba(233, 195, 198, 0.55),
-          rgba(169, 183, 154, 0.25) 55%,
-          transparent 72%
-        );
-        filter: blur(30px);
-        pointer-events: none;
+        inset: -8% 0;
+        will-change: transform;
       }
-      .hero .photo .frame {
-        position: relative;
-        width: min(100%, 360px);
-        padding: 12px;
-        border: 1px solid var(--brass);
-        border-radius: 999px 999px 10px 10px;
-        background: var(--ivory);
-        box-shadow: 0 40px 60px -40px rgba(42, 33, 26, 0.55);
-      }
-      .hero .photo .frame::before {
-        content: "";
-        position: absolute;
-        inset: 5px;
-        border: 1px solid var(--brass);
-        border-radius: 999px 999px 6px 6px;
-        opacity: 0.5;
-        pointer-events: none;
-      }
-      .hero .photo img {
+      .hero .bg img {
         width: 100%;
-        aspect-ratio: 4 / 5;
+        height: 100%;
         object-fit: cover;
-        object-position: center 22%;
-        border-radius: 999px 999px 4px 4px;
+        object-position: center 30%;
+        filter: brightness(0.85) saturate(0.95);
       }
-      /* lotus medallion breaking the top of the arch */
-      .hero .photo .medal {
+      .hero .bg::after {
+        content: "";
         position: absolute;
-        top: -22px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        background: var(--ivory);
-        border: 1px solid var(--brass);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--brass);
-      }
-      .hero .photo .medal svg {
-        width: 24px;
-        height: 16px;
-        fill: currentColor;
-      }
-      /* gold flourishes on the two bottom corners */
-      .hero .photo .corner {
-        position: absolute;
-        bottom: -10px;
-        width: 42px;
-        height: 42px;
-        color: var(--brass);
-        fill: none;
-        stroke: currentColor;
-        stroke-width: 1.2;
-        stroke-linecap: round;
-      }
-      .hero .photo .corner.l {
-        left: -12px;
-      }
-      .hero .photo .corner.r {
-        right: -12px;
-        transform: scaleX(-1);
+        inset: 0;
+        background:
+          linear-gradient(180deg, rgba(28, 21, 16, 0.5), rgba(28, 21, 16, 0) 30%, rgba(28, 21, 16, 0.15) 55%, rgba(28, 21, 16, 0.92)),
+          radial-gradient(70% 60% at 50% 100%, rgba(184, 137, 59, 0.14), transparent 70%);
       }
       .hero .text {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 4rem clamp(1.5rem, 6vw, 6rem);
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        padding: 0 clamp(1.5rem, 5vw, 4rem) clamp(3.4rem, 8vh, 6rem);
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      body.opened .hero .text {
+        animation: heroIn 1.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s forwards;
+      }
+      @keyframes heroIn {
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .hero .label {
+        color: var(--brass-soft);
       }
       .hero h2 {
-        font-size: clamp(3rem, 6.5vw, 5.6rem);
-        font-weight: 400;
-        line-height: 1;
-        margin-top: 1rem;
+        font-size: clamp(3rem, 8.5vw, 7rem);
+        font-weight: 500;
+        line-height: 0.98;
+        color: #f1dcae;
+        text-shadow: 0 4px 40px rgba(0, 0, 0, 0.6);
+        margin-top: 0.6rem;
       }
       .hero h2 em {
-        display: block;
-        color: var(--brass);
-        font-size: 0.6em;
-        line-height: 1.3;
+        font-style: italic;
+        font-weight: 400;
+        color: var(--brass-soft);
       }
-      .hero .date {
+      .hero .ml {
+        font-family: "Noto Serif Malayalam", serif;
+        font-size: clamp(1.1rem, 2.6vw, 1.5rem);
+        color: rgba(243, 234, 217, 0.72);
+        margin-top: 0.6rem;
+      }
+      .hero .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem 2rem;
+        margin-top: 1.6rem;
         font-family: "Cormorant Garamond", serif;
         font-style: italic;
-        font-size: 1.45rem;
-        color: var(--ink-soft);
-        margin-top: 1.6rem;
+        font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+        color: #f3ead9;
       }
-      .hero .where {
-        margin-top: 0.4rem;
-        color: var(--ink-soft);
+      .hero .meta span::before {
+        content: "\2726";
+        color: var(--brass-soft);
+        font-style: normal;
+        font-size: 0.7em;
+        margin-right: 0.7rem;
       }
-      .hero .links {
-        margin-top: 2.4rem;
+      .hero .meta span:first-child::before {
+        content: none;
       }
 
       /* ============ SECTIONS ============ */
@@ -614,36 +603,26 @@
           width: 104px;
           height: 104px;
         }
-        /* hero: no forced full-screen height, tighter stack */
-        .hero,
-        .invite {
-          grid-template-columns: 1fr;
-        }
+        /* hero on phones: a little shorter, names stacked, details one per line */
         .hero {
-          min-height: 0;
+          min-height: 92vh;
         }
-        .hero .photo {
-          padding: 2.4rem 1.5rem 0.5rem;
-        }
-        .hero .photo .frame {
-          width: min(72vw, 300px);
-        }
-        .hero .text {
-          text-align: center;
-          padding: 1.6rem 1.5rem 3.2rem;
+        .hero .bg img {
+          object-position: 50% 25%;
         }
         .hero h2 {
-          font-size: clamp(2.6rem, 11vw, 4rem);
+          font-size: clamp(2.8rem, 13vw, 4.4rem);
         }
-        .hero h2 em {
-          font-size: 0.55em;
+        .hero .meta {
+          flex-direction: column;
+          gap: 0.2rem;
         }
-        .hero .links .btn {
-          display: block;
-          text-align: center;
+        .hero .meta span::before {
+          content: none;
         }
-        /* invitation: portrait picture, keeps the statue whole */
+        /* invitation: single column on phones, portrait picture, keeps the statue whole */
         .invite {
+          grid-template-columns: 1fr;
           gap: 2rem;
         }
         .invite .pic {
@@ -734,10 +713,13 @@
         will-change: transform;
         box-shadow: 0 1px 3px rgba(42, 33, 26, 0.22);
       }
+      /* phones with "Reduce Motion" on: the tap screen and petals still show,
+         the intro text simply appears without the fade-in */
       @media (prefers-reduced-motion: reduce) {
-        #intro,
-        #petals {
-          display: none;
+        #intro .over > * {
+          opacity: 1;
+          animation: none;
+          transform: none;
         }
         .reveal {
           opacity: 1;
@@ -770,8 +752,8 @@
 
     <div id="petals" aria-hidden="true"></div>
 
-    <header class="bar">
-      <a class="logo" href="#top">S <em>&amp;</em> P</a>
+    <header class="bar" id="bar">
+      <a class="logo" href="#top"><img src="ganapati.png" alt="" />S <em>&amp;</em> P</a>
       <nav>
         <a href="#invite">Invitation</a>
         <a href="#details">Muhurtham</a>
@@ -780,6 +762,23 @@
     </header>
 
     <!-- HERO -->
+    <header class="hero" id="top">
+      <div class="bg" id="heroBg">
+        <img src="pic3.jpeg" alt="Sreelekshmi and Pranav" />
+      </div>
+      <div class="text">
+        <p class="label">The wedding of</p>
+        <h2 class="serif">Sreelekshmi <em>&amp;</em> Pranav</h2>
+        
+        <div class="meta">
+          <span>Thursday, 17 December 2026</span>
+          <span>Muhurtham 12:25 PM</span>
+          <span>St. George College Auditorium, Aruvithura</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- PREVIOUS FIRST PAGE (arched frame on ivory), kept in case you want it back:
     <div class="hero" id="top">
       <div class="photo">
         <div class="frame">
@@ -817,7 +816,7 @@
         </div>
       </div>
     </div>
-
+    -->
     <!-- INVITATION -->
     <div class="wrap invite" id="invite">
       <div class="pic reveal">
@@ -1004,14 +1003,10 @@
       intro.addEventListener("keydown", (e) => {
         if (e.key === "Enter" || e.key === " ") openSite()
       })
-      if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        document.body.classList.add("opened")
-      }
 
       /* petals: jasmine white, cream and kasavu gold; drift down for ~8 seconds after the tap */
       const petalLayer = document.getElementById("petals")
       const petalColours = ["#FFFDF7", "#FFFDF7", "#F3E9D2", "#EEDDBB", "#E2C48C", "#C9A45C"]
-      const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches
       function spawnPetal() {
         const p = document.createElement("span")
         p.className = "petal"
@@ -1036,11 +1031,29 @@
         setTimeout(() => p.remove(), dur * 1000)
       }
       function startPetals() {
-        if (reduceMotion) return
         const timer = setInterval(spawnPetal, 250)
         for (let i = 0; i < 6; i++) setTimeout(spawnPetal, i * 150)
         setTimeout(() => clearInterval(timer), 8000) // stop new petals after 8s; the rest finish falling
       }
+
+      /* header: transparent over the photo, solid ivory after scrolling */
+      const bar = document.getElementById("bar")
+      const heroBg = document.getElementById("heroBg")
+      let heroTick = false
+      addEventListener(
+        "scroll",
+        () => {
+          bar.classList.toggle("scrolled", scrollY > 60)
+          if (!heroTick) {
+            heroTick = true
+            requestAnimationFrame(() => {
+              heroBg.style.transform = `translateY(${scrollY * 0.22}px)`
+              heroTick = false
+            })
+          }
+        },
+        { passive: true },
+      )
 
       /* reveal on scroll */
       const io = new IntersectionObserver(
