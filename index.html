@@ -718,8 +718,25 @@
           font-size: 2.4rem;
         }
       }
+      /* ============ PETALS (fall once when the invitation opens) ============ */
+      #petals {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 45;
+        overflow: hidden;
+      }
+      .petal {
+        position: absolute;
+        top: -8vh;
+        border-radius: 60% 40% 55% 45% / 55% 45% 60% 40%;
+        opacity: 0;
+        will-change: transform;
+        box-shadow: 0 1px 3px rgba(42, 33, 26, 0.22);
+      }
       @media (prefers-reduced-motion: reduce) {
-        #intro {
+        #intro,
+        #petals {
           display: none;
         }
         .reveal {
@@ -751,6 +768,8 @@
       </div>
     </div>
 
+    <div id="petals" aria-hidden="true"></div>
+
     <header class="bar">
       <a class="logo" href="#top">S <em>&amp;</em> P</a>
       <nav>
@@ -777,7 +796,7 @@
           <svg class="corner l" viewBox="0 0 42 42" aria-hidden="true">
             <path d="M2 40V16c0-6 4-10 10-10h8" />
             <path d="M8 40V22c0-4 2-6 6-6h6" opacity=".6" />
-            <circle cx="24" cy="6" r="1.6" fill="currentColor" stroke="none" /> 
+            <circle cx="24" cy="6" r="1.6" fill="currentColor" stroke="none" />
             <circle cx="2" cy="40" r="1.6" fill="currentColor" stroke="none" />
           </svg>
           <svg class="corner r" viewBox="0 0 20 20" aria-hidden="true">
@@ -978,6 +997,7 @@
           .then(() => setMusicUI(true))
           .catch(() => {})
         intro.classList.add("gone")
+        startPetals()
         setTimeout(() => (intro.style.display = "none"), 1100)
       }
       intro.addEventListener("click", openSite)
@@ -986,6 +1006,40 @@
       })
       if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
         document.body.classList.add("opened")
+      }
+
+      /* petals: jasmine white, cream and kasavu gold; drift down for ~8 seconds after the tap */
+      const petalLayer = document.getElementById("petals")
+      const petalColours = ["#FFFDF7", "#FFFDF7", "#F3E9D2", "#EEDDBB", "#E2C48C", "#C9A45C"]
+      const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches
+      function spawnPetal() {
+        const p = document.createElement("span")
+        p.className = "petal"
+        const size = 7 + Math.random() * 11
+        p.style.width = size + "px"
+        p.style.height = size * 0.72 + "px"
+        p.style.left = Math.random() * 100 + "vw"
+        p.style.background = petalColours[Math.floor(Math.random() * petalColours.length)]
+        const dur = 8 + Math.random() * 3,
+          drift = Math.random() * 220 - 110,
+          rot = Math.random() * 720 - 360
+        p.animate(
+          [
+            { transform: "translate(0,0) rotate(0deg)", opacity: 0 },
+            { opacity: 0.85, offset: 0.1 },
+            { opacity: 0.85, offset: 0.85 },
+            { transform: `translate(${drift}px,112vh) rotate(${rot}deg)`, opacity: 0 },
+          ],
+          { duration: dur * 1000, easing: "linear" },
+        )
+        petalLayer.appendChild(p)
+        setTimeout(() => p.remove(), dur * 1000)
+      }
+      function startPetals() {
+        if (reduceMotion) return
+        const timer = setInterval(spawnPetal, 250)
+        for (let i = 0; i < 6; i++) setTimeout(spawnPetal, i * 150)
+        setTimeout(() => clearInterval(timer), 8000) // stop new petals after 8s; the rest finish falling
       }
 
       /* reveal on scroll */
