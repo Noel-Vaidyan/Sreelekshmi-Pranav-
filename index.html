@@ -272,6 +272,7 @@
       .hero {
         position: relative;
         min-height: 100vh;
+        min-height: 100dvh;
         display: flex;
         align-items: flex-end;
         overflow: hidden;
@@ -603,9 +604,10 @@
           width: 104px;
           height: 104px;
         }
-        /* hero on phones: a little shorter, names stacked, details one per line */
+        /* hero on phones: fills the whole screen (dvh follows the browser bar), names stacked, details one per line */
         .hero {
-          min-height: 92vh;
+          min-height: 100vh;
+          min-height: 100dvh;
         }
         .hero .bg img {
           object-position: 50% 25%;
@@ -899,7 +901,7 @@
           </div>
           <p class="label">Blessings</p>
           <p class="serif">Your presence is our blessing</p>
-          <p class="sub">Join us and be a part of our celebration</p>
+          <p class="sub">Join us and be a part of our celebration.</p>
         </div>
       </div>
       <div class="links">
